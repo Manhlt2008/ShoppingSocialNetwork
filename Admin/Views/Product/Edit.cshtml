@@ -1,0 +1,22 @@
+﻿@model Admin.Models.Product
+@{
+    ViewBag.Title = "Edit";
+}
+<div class="box-body">
+    <input type="hidden" id="productId" value="@Model.ProductId">
+    <div class="form-group">
+        <label for="txtName">Tên sản phẩm</label>
+        <input type="text" class="form-control" id="txtName" value="@Model.Name">
+    </div>
+    <div class="form-group">
+        <label>Mô tả</label>
+        <input type="text" class="form-control" id="txtDescription" value="@Model.Description">
+    </div>
+    <div class="form-group">
+        <label for="txtPrice">Giá</label>
+        <input type="text" class="form-control" id="txtPrice" value="@Model.Price">
+    </div>
+        <button type="button" class="btn btn-default fl" onclick="goBack();"><i class="fa  fa-rotate-left"></i> Hủy bỏ</button>
+        <button type="button" class="btn btn-primary fr" onclick="SaveProduct();"><i class="fa fa-save"></i> Lưu lại</button>                                                    
+</div>
+

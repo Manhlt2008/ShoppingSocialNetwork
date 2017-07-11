@@ -1,0 +1,105 @@
+﻿@model List<Admin.Models.Product>
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="box">
+    <div class="box-header">
+        <h3 class="box-title">Danh sách sản phẩm</h3>
+    </div>
+    <!-- /.box-header -->
+    <button type="button" class="btn btn-info  fr mr10 mb10" data-toggle="modal" data-target="#modal-create">
+        Thêm sản phẩm
+    </button>
+    <div class="box-body">
+        <table id="example1" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Tên</th>
+                    <th>Mô tả</th>
+                    <th>Giá</th>
+                    <th>Ngày tạo</th>
+                    <th>Ngày sửa</th>
+                    <th>Thao tác</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    if (Model != null && Model.Count > 0)
+                    {
+                        foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.Name</td>
+                                <td>@item.Description</td>
+                                <td>@item.Price</td>
+                                <td>@item.CreateDate.ToString("dd/MM/yyyy")</td>
+                                <td>@item.ModifyDate.ToString("dd/MM/yyyy")</td>
+                                <td>
+                                    <a href="/Product/Edit?ProductId=@item.ProductId"><i class="fa fa-edit "></i></a>
+                                    <span title="Xóa sản phẩm" class="open-DeleteDialog" data-id="@item.ProductId"><i class="fa fa-trash "></i></span>
+                                </td>
+                            </tr>
+                        }
+
+
+                    }
+                }
+                
+            </tbody>
+        </table>
+    </div>
+    <!-- /.box-body -->
+    <div class="modal fade" id="modal-create" style="display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                    <h4 class="modal-title">Thêm sản phẩm</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="txtName">Tên sản phẩm</label>
+                        <input type="text" class="form-control" id="txtName">
+                    </div>
+                    <div class="form-group">
+                        <label>Mô tả</label>
+                        <input type="text" class="form-control" id="txtDescription">
+                    </div>
+                    <div class="form-group">
+                        <label for="txtPrice">Giá</label>
+                        <input type="text" class="form-control" id="txtPrice">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Đóng</button>
+                    <button type="button" class="btn btn-primary" onclick="InsertProduct();">Lưu</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="modal-delete" style="display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                    <h4 class="modal-title">Sản phẩm xóa sẽ không lấy lại được. Bạn có chắc chắn muốn xóa ???</h4>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" id="prId" value="" />
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Đóng</button>
+                    <button type="button" class="btn btn-primary" onclick="DeleteProduct();">Xóa</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
