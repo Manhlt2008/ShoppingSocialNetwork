@@ -1,0 +1,19 @@
+﻿@model Admin.Models.UserGroup
+@{
+    ViewBag.Title = "Sửa nhóm người dùng";                   
+}
+
+<div class="box-body">
+    <input type="hidden" id="groupId" value="@Model.GroupID">
+   <div class="form-group">
+        <label>GroupName</label>
+        <input type="text" class="form-control" id="txtGroupName" value="@Model.GroupName">
+    </div>
+    <div class="form-group">
+        <label>Note</label>
+        <input type="text" class="form-control" id="txtNote" value="@Model.Note">
+    </div>
+    <button type="button" class="btn btn-default fl" onclick="goBack();"><i class="fa  fa-rotate-left"></i> Hủy bỏ</button>
+    <button type="button" class="btn btn-primary fr" onclick="SaveUserGroup();"><i class="fa fa-save"></i> Lưu lại</button>
+</div>
+

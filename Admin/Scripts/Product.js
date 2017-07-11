@@ -60,3 +60,41 @@ function DeleteProduct() {
         }
     });
 }
+//usergroup
+function InsertUserGroup() {
+    var ug = new Object();
+    ug.GroupID = $("#txtGroupID").val();
+    ug.GroupName = $("#txtGroupName").val();
+    ug.Note = $("#txtNote").val();
+    $.ajax({
+        type: 'POST',
+        data: '{ model:' + JSON.stringify(ug) + '}',
+        url: '/UserGroup/InsertUserGroup',
+        contentType: "application/json",
+        success: function (data) {
+            window.location = '/UserGroup/Index';
+        },
+        error: function () {
+            console.log("Thêm mới nhóm người dùng lỗi!!!");
+        }
+    });
+}
+function SaveUserGroup() {
+    var ug = new Object();
+    ug.GroupID = $("#groupId").val();
+    ug.GroupName = $("#txtGroupName").val().trim();
+    ug.Note = $("#txtNote").val().trim();
+    $.ajax({
+        type: 'POST',
+        data: '{ model:' + JSON.stringify(ug) + '}',
+        url: '/UserGroup/UpdateUserGroup',
+        contentType: "application/json",
+        success: function (data) {
+            if (data == 1) alert("Sửa nhóm người dùng thành công");
+            window.location = '/UserGroup/Index';
+        },
+        error: function () {
+            console.log("Sửa nhóm người dùng lỗi!!!");
+        }
+    });
+}
