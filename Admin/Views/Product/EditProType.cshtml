@@ -1,0 +1,17 @@
+﻿@model Admin.Models.ProductType
+@{
+    ViewBag.Title = "Edit Product Type";
+}
+<div class="box-body">
+    <input type="hidden" id="proTypeId" value="@Model.ProTypeId">
+    <div class="form-group">
+        <label for="txtName">Loại sản phẩm</label>
+        <input type="text" class="form-control" id="txtName" value="@Model.Name">
+    </div>
+    <div class="form-group">
+        <label>Ghi chú</label>
+        <input type="text" class="form-control" id="txtNote" value="@Model.Note">
+    </div>
+    <button type="button" class="btn btn-default fl" onclick="goBack();"><i class="fa  fa-rotate-left"></i> Hủy bỏ</button>
+    <button type="button" class="btn btn-primary fr" onclick="UpdateProductType();"><i class="fa fa-save"></i> Lưu lại</button>
+</div>

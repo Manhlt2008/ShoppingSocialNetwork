@@ -15,4 +15,10 @@ namespace Admin.Models
         public string Description { get; set; }
         public int Status { get; set; }    
     }
+    public class ProductType
+    {
+        public int ProTypeId { get; set; }
+        public string Name { get; set; }
+        public string Note { get; set; }
+    }
 }

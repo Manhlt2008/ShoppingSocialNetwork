@@ -71,5 +71,64 @@ namespace Admin.Controllers
             }
             return Json(rs, JsonRequestBehavior.AllowGet);
         }
+
+        public ActionResult ProductType()
+        {
+            ProductBL producBL = new ProductBL();
+            List<ProductType> lstProductType = new List<ProductType>();
+            lstProductType = producBL.GetAllProductType();
+            return View(lstProductType);  
+        }
+        public JsonResult InsertProductType(ProductType model)
+        {
+            int rs = -1;
+            ProductBL producBL = new ProductBL();
+            try
+            {
+                producBL.InsertProductType(model);
+                rs = 1;
+            }
+            catch (Exception ex)
+            {
+                ErrorWriter.WriteLog(System.Web.HttpContext.Current.Server.MapPath("~"), "[InsertProductType]", ex.ToString());
+            }
+            return Json(rs, JsonRequestBehavior.AllowGet);
+        }
+        public ActionResult EditProType(int ProTypeId)
+        {
+            ProductBL producBL = new ProductBL();
+            var productDetail = producBL.GetProductTypeById(ProTypeId);
+            return View(productDetail);
+        }
+        public JsonResult UpdateProductType(ProductType model)
+        {
+            int rs = -1;
+            ProductBL producBL = new ProductBL();
+            try
+            {
+                producBL.UpdateProductType(model);
+                rs = 1;
+            }
+            catch (Exception ex)
+            {
+                ErrorWriter.WriteLog(System.Web.HttpContext.Current.Server.MapPath("~"), "[UpdateProductType]", ex.ToString());
+            }
+            return Json(rs, JsonRequestBehavior.AllowGet);
+        }
+        public JsonResult DeleteProductType(int proTypeId)
+        {
+            int rs = -1;
+            ProductBL producBL = new ProductBL();
+            try
+            {
+                producBL.DeleteProductType(proTypeId);
+                rs = 1;
+            }
+            catch (Exception ex)
+            {
+                ErrorWriter.WriteLog(System.Web.HttpContext.Current.Server.MapPath("~"), "[DeleteProductType] proTypeId=", proTypeId.ToString() + ex.ToString());
+            }
+            return Json(rs, JsonRequestBehavior.AllowGet);
+        }
     }
 }

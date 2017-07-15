@@ -1,0 +1,124 @@
+﻿@model List<Admin.Models.ProductType>
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="box">
+    <div class="box-header">
+        <h3 class="box-title">Danh sách loại sản phẩm</h3>
+    </div>
+    <!-- /.box-header -->
+    <button type="button" class="btn btn-info  fr mr10 mb10" data-toggle="modal" data-target="#modal-create">
+        Thêm loại sản phẩm
+    </button>
+    <div class="box-body">
+        <table id="tbl-pt" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Loại sản phẩm</th>
+                    <th>Ghi chú</th>
+                    <th>Thao tác</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    if (Model != null && Model.Count > 0)
+                    {
+                        foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.Name</td>
+                                <td>@item.Note</td>
+                                <td>
+                                    <a href="/Product/EditProType?ProTypeId=@item.ProTypeId"><i class="fa fa-edit "></i></a>
+                                    <a href="javascript:void(0)" title="Xóa sản phẩm" class="open-delete-pt" data-id="@item.ProTypeId"><i class="fa fa-trash "></i></a>
+                                </td>
+                            </tr>
+                        }
+
+
+                    }
+                }
+
+            </tbody>
+        </table>
+    </div>
+    <!-- /.box-body -->
+    <div class="modal fade" id="modal-create" style="display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                    <h4 class="modal-title">Thêm loại sản phẩm</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>ProTypeId</label>
+                        <input type="text" class="form-control" id="txtProTypeId">
+                    </div>
+                    <div class="form-group">
+                        <label>Tên loại sản phẩm</label>
+                        <input type="text" class="form-control" id="txtName">
+                    </div>
+                    <div class="form-group">
+                        <label>Ghi chú</label>
+                        <input type="text" class="form-control" id="txtNote">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Đóng</button>
+                    <button type="button" class="btn btn-primary" onclick="InsertProductType();">Lưu</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="modal-delete" style="display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                    <h4 class="modal-title">Dữ liệu xóa sẽ không lấy lại được. Bạn có chắc chắn muốn xóa ???</h4>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" id="ptId" value="" />
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Đóng</button>
+                    <button type="button" class="btn btn-primary" onclick="DeleteProductType();">Xóa</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+        $(function () {
+            $('#tbl-pt').dataTable({
+                "bPaginate": true,
+                "bLengthChange": true,
+                "bFilter": true,
+                "bSort": true,
+                "bInfo": true,
+                "bAutoWidth": false,
+                "oLanguage": {
+                    "oPaginate": {
+                        "sFirst": "Đầu",
+                        "sLast": "Cuối",
+                        "sPrevious": "Trước",
+                        "sNext": "Tiếp"
+                    },
+                    "sInfo": "Hiển thị _START_ đến _END_ trong số _TOTAL_ bản ghi",
+                    "sInfoFiltered": "(search trong _MAX_ bản ghi)",
+			    },
+                "aLengthMenu": [[1,2,3, 4, 5, -1], [1,2,3, 4, 5, "Tất cả"]],
+                "iDisplayLength": -1,
+            });
+        });
+</script>
+
+
+

@@ -117,3 +117,62 @@ function DeleteUserGroup() {
         }
     });
 }
+
+//ProductType
+function InsertProductType() {
+    var productT = new Object();
+    productT.ProTypeId = $("#txtProTypeId").val().trim();
+    productT.Name = $("#txtName").val().trim();
+    productT.Note = $("#txtNote").val().trim();
+    
+    $.ajax({
+        type: 'POST',
+        data: '{ model:' + JSON.stringify(productT) + '}',
+        url: '/Product/InsertProductType',
+        contentType: "application/json",
+        success: function (data) {
+            window.location = '/Product/ProductType';
+        },
+        error: function () {
+            console.log("Thêm loại sản phẩm lỗi!!!");
+        }
+    });
+}
+function UpdateProductType() {
+    var pt = new Object();
+    pt.ProTypeId = $("#proTypeId").val();
+    pt.Name = $("#txtName").val().trim();
+    pt.Note = $("#txtNote").val().trim();
+    $.ajax({
+        type: 'POST',
+        data: '{ model:' + JSON.stringify(pt) + '}',
+        url: '/Product/UpdateProductType',
+        contentType: "application/json",
+        success: function (data) {
+            if (data == 1) alert("Sửa loại sản phẩm thành công");
+            window.location = '/Product/ProductType';
+        },
+        error: function () {
+            console.log("Sửa loại sản phẩm dùng lỗi!!!");
+        }
+    });
+}
+$(document).on("click", ".open-delete-pt", function () {
+    var id = $(this).data('id');
+    $(".modal-body #ptId").val(id);
+    $('#modal-delete').modal('show');
+});
+function DeleteProductType() {
+    $.ajax({
+        type: 'POST',
+        data: '{ proTypeId:"' + $("#ptId").val() + '"}',
+        url: '/Product/DeleteProductType',
+        contentType: "application/json",
+        success: function (data) {
+            window.location = '/Product/ProductType';
+        },
+        error: function () {
+            console.log("Xóa nhóm sản phẩm lỗi!!!");
+        }
+    });
+}

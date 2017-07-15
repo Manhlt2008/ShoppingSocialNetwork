@@ -407,6 +407,7 @@
     <Content Include="Content\plugins\input-mask\phone-codes\phone-be.json" />
     <Content Include="Content\plugins\input-mask\phone-codes\phone-codes.json" />
     <Content Include="Content\plugins\slimScroll\slimScroll.jquery.json" />
+    <None Include="Properties\PublishProfiles\Admin_Shop.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery-2.2.3.min.js" />
@@ -436,6 +437,8 @@
     <Content Include="Views\Product\Edit.cshtml" />
     <Content Include="Views\UserGroup\Index.cshtml" />
     <Content Include="Views\UserGroup\Edit.cshtml" />
+    <Content Include="Views\Product\ProductType.cshtml" />
+    <Content Include="Views\Product\EditProType.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
