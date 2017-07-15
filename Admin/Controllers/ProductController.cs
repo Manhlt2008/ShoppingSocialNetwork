@@ -27,9 +27,9 @@ namespace Admin.Controllers
             ProductBL producBL = new ProductBL();
             try
             {
-                model.CreateDate = DateTime.Now;
-                model.ModifyDate = DateTime.Now;
-                model.CreateBy = 1;//Fix tạm      
+                model.CreatedAt = DateTime.Now;
+                model.ModifiedAt = DateTime.Now;
+                model.CreatedBy = 1;//Fix tạm      
                 producBL.Insert(model);
                 rs = 1;
             }
@@ -45,8 +45,8 @@ namespace Admin.Controllers
             ProductBL producBL = new ProductBL();
             try
             {
-                model.ModifyDate = DateTime.Now;
-                model.ModifyBy = 1;//Fix tạm      
+                model.ModifiedAt = DateTime.Now;
+                model.ModifiedBy = 1;//Fix tạm      
                 producBL.Update(model);
                 rs = 1;
             }

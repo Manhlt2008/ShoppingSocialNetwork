@@ -53,18 +53,18 @@ namespace Admin.Controllers
             }
             return Json(rs, JsonRequestBehavior.AllowGet);
         }
-        public JsonResult DeleteProduct(int productId)
+        public JsonResult DeleteUserGroup(string groupId)
         {
             int rs = -1;
-            ProductBL producBL = new ProductBL();
+            UserGroupBL UsergBL = new UserGroupBL();
             try
             {
-                producBL.Delete(productId);
+                UsergBL.Delete(groupId);
                 rs = 1;
             }
             catch (Exception ex)
             {
-                ErrorWriter.WriteLog(System.Web.HttpContext.Current.Server.MapPath("~"), "[DeleteProduct] productId=", productId.ToString() + ex.ToString());
+                ErrorWriter.WriteLog(System.Web.HttpContext.Current.Server.MapPath("~"), "[DeleteUserGroup] groupId=", groupId.ToString() + ex.ToString());
             }
             return Json(rs, JsonRequestBehavior.AllowGet);
         }

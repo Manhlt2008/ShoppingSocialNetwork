@@ -17,8 +17,8 @@ namespace Admin.DAL
                     .Parameter("Name", pro.Name)
                     .Parameter("Description", pro.Description)
                     .Parameter("Price", pro.Price)
-                    .Parameter("CreateDate", pro.CreateDate)
-                    .Parameter("CreateBy", pro.CreateBy)  
+                    .Parameter("CreateDate", pro.CreatedAt)
+                    .Parameter("CreateBy", pro.CreatedBy)  
                     .Execute();
             }
         }
@@ -32,7 +32,7 @@ namespace Admin.DAL
                     .Parameter("Name", pro.Name)
                     .Parameter("Description", pro.Description)
                     .Parameter("Price", pro.Price)
-                    .Parameter("ModifyBy", pro.ModifyBy)
+                    .Parameter("ModifyBy", pro.ModifiedBy)
                     .Execute();
             }
         }

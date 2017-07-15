@@ -98,3 +98,22 @@ function SaveUserGroup() {
         }
     });
 }
+$(document).on("click", ".open-delete-ug", function () {
+    var ugId = $(this).data('id');
+    $(".modal-body #ugId").val(ugId);
+    $('#modal-delete-ug').modal('show');
+});
+function DeleteUserGroup() {
+    $.ajax({
+        type: 'POST',
+        data: '{ groupId:"' + $("#ugId").val() + '"}',
+        url: '/UserGroup/DeleteUserGroup',
+        contentType: "application/json",
+        success: function (data) {
+            window.location = '/UserGroup/Index';
+        },
+        error: function () {
+            console.log("Xóa sản phẩm lỗi!!!");
+        }
+    });
+}
