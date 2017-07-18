@@ -4,6 +4,7 @@
 
 function InsertProduct() {
     var product = new Object();
+    product.ProTypeID = $("#ddlProTypeID").val();
     product.Name = $("#txtName").val();
     product.Description = $("#txtDescription").val();
     product.Price = $("#txtPrice").val();
@@ -22,10 +23,13 @@ function InsertProduct() {
 }
 function SaveProduct() {
     var product = new Object();
+    product.ProTypeID = $("#ddlProTypeID").val();
     product.ProductId = $("#productId").val();
     product.Name = $("#txtName").val();
     product.Description = $("#txtDescription").val();
     product.Price = $("#txtPrice").val();
+    console.log(product);
+    return;
     $.ajax({
         type: 'POST',
         data: '{ model:' + JSON.stringify(product) + '}',

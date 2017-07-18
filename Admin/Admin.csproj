@@ -170,6 +170,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Common\Const.cs" />
     <Compile Include="Common\ErrorWriter.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\UserGroupController.cs" />

@@ -13,12 +13,14 @@ namespace Admin.Controllers
             ProductBL producBL = new ProductBL();
             List<Product> lstProduct = new List<Product>();
             lstProduct = producBL.GetAllProduct();
+            ViewBag.ProductType = producBL.GetAllProductType();
             return View(lstProduct);
         }
         public ActionResult Edit(int productId)
         {
             ProductBL producBL = new ProductBL();
             var productDetail = producBL.GetProductByProductId(productId);
+            ViewBag.ProductType = producBL.GetAllProductType();
             return View(productDetail);
         }
         public JsonResult InsertProduct(Product model)
