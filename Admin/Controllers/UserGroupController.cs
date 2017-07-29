@@ -8,6 +8,7 @@ using System.Web.Mvc;
 
 namespace Admin.Controllers
 {
+    [Authorize]
     public class UserGroupController:Controller
     {
         public ActionResult Index()

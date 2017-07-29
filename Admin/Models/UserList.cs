@@ -23,4 +23,18 @@ namespace Admin.Models
         public string CoverImage { get; set; }
         public int Status { get; set; }   
     }
+    public class UserModel
+    {
+        public string Username { get; set; }
+        public string GroupID { get; set; }  
+        public string FullName { get; set; }
+        public string Address { get; set; }
+        public string Location { get; set; }
+        public string Avatar { get; set; }
+        public int Status { get; set; }
+        public string Description { get; set; }
+        public string CoverImage { get; set; }
+        public string GroupName { get; set; }
+        public string RoleName { get; set; }  
+    }
 }

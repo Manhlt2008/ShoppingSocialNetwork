@@ -1,0 +1,46 @@
+﻿@{ 
+    Layout = null;
+}
+<!-- Bootstrap 3.3.6 -->
+<link rel="stylesheet" href="/Content/bootstrap/css/bootstrap.min.css">
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+<!-- Ionicons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+<!-- Theme style -->
+<link rel="stylesheet" href="/Content/dist/css/AdminLTE.min.css">
+
+<body class="hold-transition login-page">
+    <div class="login-box">
+        <div class="login-logo">
+            <a href="../../index2.html"><b>Admin</b></a>
+        </div>
+        <div class="login-box-body">
+            <p class="login-box-msg">Đăng nhập để bắt đầu phiên làm việc</p>
+            <p class="login-box-msg">User:manhlt, password:123456</p>
+            <span id="error" style="color:#f00"></span>
+            <div class="form-group has-feedback">
+                <input type="text" class="form-control" placeholder="UserName" id="txtUser">
+                <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+            </div>
+            <div class="form-group has-feedback">
+                <input type="password" class="form-control" placeholder="Password" id="txtPass">
+                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+            </div>
+            <div class="row">
+                <div class="col-xs-8">
+                       
+                </div>
+                <div class="col-xs-4">
+                    <button type="button" class="btn btn-primary btn-block btn-flat" onclick="LogIn()">Sign In</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.login-box -->
+    <!-- jQuery 2.2.3 -->
+    <script src="/Scripts/jquery-2.2.3.min.js"></script>
+    <!-- Bootstrap 3.3.6 -->
+    <script src="../../bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/Scripts/LogIn.js"></script>
+</body>

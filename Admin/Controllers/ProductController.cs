@@ -6,8 +6,10 @@ using System.Web.Mvc;
 
 namespace Admin.Controllers
 {
+    [Authorize]
     public class ProductController : Controller
     {
+        
         public ActionResult Index()
         {
             ProductBL producBL = new ProductBL();

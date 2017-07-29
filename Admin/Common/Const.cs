@@ -44,4 +44,15 @@ namespace Admin.Common
         /// </summary>
         Block = 1
     }
+
+    public struct FlagStatus
+    {
+        public const int SpamData = -1;// Post spam
+        public const int ServerError = 0;//Server lỗi
+        public const int Success = 1;//Thao tác thành công
+        public const int IputError = 2;//Dữ liệu nhập vào không đúng
+        public const int NotAccess = 3;//Không có quyền truy cập (User này vào sửa tin bài của user khác,....)
+        public const int DataNotFound = 4;// Dữ liệu không tồn tại
+        public const int Duplicate = 5;//Dữ liệu trùng lặp
+    }
 }

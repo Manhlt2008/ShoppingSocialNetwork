@@ -172,11 +172,16 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Common\Const.cs" />
     <Compile Include="Common\ErrorWriter.cs" />
+    <Compile Include="Common\Helper.cs" />
+    <Compile Include="Common\Lib.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\UserGroupController.cs" />
     <Compile Include="DAL\MainDBContext.cs" />
     <Compile Include="DAL\ProductBL.cs" />
     <Compile Include="DAL\UserGroupBL.cs" />
+    <Compile Include="DAL\UserListBL.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -266,6 +271,7 @@
     <Content Include="Content\dist\js\pages\dashboard.js" />
     <Content Include="Content\dist\js\pages\dashboard2.js" />
     <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\Image\hacker.jpg" />
     <Content Include="Content\jvectormap\jquery-jvectormap-1.2.2.css" />
     <Content Include="Content\jvectormap\jquery-jvectormap-1.2.2.min.js" />
     <Content Include="Content\jvectormap\jquery-jvectormap-usa-en.js" />
@@ -416,12 +422,15 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\LogIn.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\Product.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -440,13 +449,13 @@
     <Content Include="Views\UserGroup\Edit.cshtml" />
     <Content Include="Views\Product\ProductType.cshtml" />
     <Content Include="Views\Product\EditProType.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
-    <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <PropertyGroup>
